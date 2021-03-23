@@ -1,0 +1,59 @@
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .flex-ai-c {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .producto__card {
+    margin: 0 0 70px 80px;
+  }
+
+  .producto__detalles {
+    margin: 0 0 0 50px;
+    text-align: left;
+  }
+  
+  .producto__imagen {
+    width: 150px;
+    -webkit-box-shadow: 0 0 10px gray;
+            box-shadow: 0 0 10px gray;
+  }
+  
+  .producto__titulo {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+  }
+  
+  .producto__autor {
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+  }
+  
+  .producto__precio {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+  }
+  
+  .producto__estrella {
+    font-size: 1.25rem;
+    line-height: 0;
+    color: lightgray;
+    margin: 0 0 80px 15px;
+  }
+
+  .producto__botonComprar {
+    font-size: 1rem;
+    padding: 10px 30px;
+    background-color: white;
+    color: grey;
+    border: 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }

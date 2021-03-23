@@ -3,7 +3,7 @@ import './navbar.css'
 import CartWidget from "../CartWidget/CartWidget";
 
 const NavBar = () => {
-return (
+  return (
     <header>
       <nav>
         <ul>
@@ -23,7 +23,7 @@ return (
       </nav>
 
     </header>
-)
+  )
 }
 
 export default NavBar;
