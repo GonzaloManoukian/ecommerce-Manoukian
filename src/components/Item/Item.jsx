@@ -4,15 +4,15 @@ import "./item.css";
 const Item = ({ item }) => {
     return (
 
-        <div class="producto__card flex flex-ai-c">
-            <img src={ item.imagen } alt="" class="producto__imagen" />
-            <div class="producto__detalles">
-                <h3 class="producto__titulo"> { item.titulo } </h3>
-                <p class="producto__autor"> { item.autor } </p>
-                <div class="producto__clasif flex flex-ai-c">
-                    <h4 class="producto__precio">${ item.precio }</h4>
+        <div className="producto__card flex flex-ai-c">
+            <img src={ item.imagen } alt="" className="producto__imagen" />
+            <div className="producto__detalles">
+                <h3 className="producto__titulo"> { item.titulo } </h3>
+                <p className="producto__autor"> { item.autor } </p>
+                <div className="producto__clasif flex flex-ai-c">
+                    <h4 className="producto__precio">${ item.precio }</h4>
                 </div>
-                <button class="producto__botonComprar" data-id= { item.id } > Comprar </button>
+                <button className="producto__botonComprar" data-id= { item.id } > Comprar </button>
             </div>
         </div>
 
