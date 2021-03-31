@@ -1,5 +1,6 @@
 import React from 'react';
 import "./item.css";
+import { Link } from "react-router-dom";
 
 const Item = ({ item }) => {
     return (
@@ -12,7 +13,9 @@ const Item = ({ item }) => {
                 <div className="producto__clasif flex flex-ai-c">
                     <h4 className="producto__precio">${ item.precio }</h4>
                 </div>
+                <Link to={`/item/${item.id}`}>
                 <button className="producto__botonComprar" data-id= { item.id } > Comprar </button>
+                </Link>
             </div>
         </div>
 

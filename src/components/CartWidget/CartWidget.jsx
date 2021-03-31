@@ -4,7 +4,7 @@ import cart from './cart.svg'
 
 const CartWidget = () => {
     return (
-        <img src={cart} />
+        <img src={cart} alt="Carrito" />
     );
 }
 
