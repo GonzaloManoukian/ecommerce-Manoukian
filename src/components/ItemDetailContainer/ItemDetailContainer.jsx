@@ -16,8 +16,6 @@ const ItemDetailContainer = () => {
 
             setTimeout(() => {
 
-                console.log(products);
-                console.log(itemId);
                 if (itemId) {
                     const productFilter = products.find((product) => {
                         return product.id === parseInt(itemId);
