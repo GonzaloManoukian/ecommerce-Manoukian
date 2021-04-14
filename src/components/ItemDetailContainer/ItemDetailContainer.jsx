@@ -4,33 +4,33 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import products from "../../products/products";
 
+import {getFirestore} from '../../firebase/client'
+
+
+
+const getItems = (id) => {
+    const db = getFirestore();
+    const itemsCollection = db.collection('items')
+
+    const item = itemsCollection.doc(id)
+    return item.get();
+}
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState([])
-
     const { itemId } = useParams()
 
-    useEffect(() => {
-        const promesa = new Promise((resolve) =>
+    useEffect(()=> {
+        getItems(itemId)
+        .then((res) => {
+            console.log('existe?', res.exists);
+            if (res.exists){
+                setItem(res.data())
+                        }
 
-            setTimeout(() => {
-
-                if (itemId) {
-                    const productFilter = products.find((product) => {
-                        return product.id === parseInt(itemId);
-                    });
-                    resolve(productFilter);
-                } else resolve(products)
-
-
-            }, 2000)
-        );
-        promesa.then((resultado) => {
-            setItem(resultado);
-        });
-    });
-
+        })
+    }, []);
 
     return (
         <div className="container">

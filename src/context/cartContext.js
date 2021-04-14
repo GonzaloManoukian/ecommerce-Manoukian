@@ -14,7 +14,8 @@ export const CartProvider = ({children}) => {
         setCart([...newCart, 
                 { item: newItem , quantity: quantity + newQuantity  }])
 
-        console.log(`Se agrego ${newItem.titulo}, cantidad ${newQuantity}`);
+        console.log(`Se agrego el Titulo: ${newItem.titulo}, cantidad: ${newQuantity}`);
+        
     } // agregar cierta cantidad de un ítem al carrito
     
     
