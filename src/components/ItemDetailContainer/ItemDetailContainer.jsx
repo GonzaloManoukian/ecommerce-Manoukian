@@ -36,7 +36,7 @@ const ItemDetailContainer = () => {
         <div className="container">
 
             <h2> Item: {itemId}</h2>
-            <ItemDetail item={item} />
+            <ItemDetail item={{id: itemId, ...item}} />
 
         </div>
     );
