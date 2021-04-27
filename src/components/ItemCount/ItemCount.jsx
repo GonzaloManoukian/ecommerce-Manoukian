@@ -1,4 +1,5 @@
-import React, {  useState } from 'react'
+import React, {  useState } from 'react';
+import "./itemCount.css";
 
 export function ItemCount({ stock, initial, onAdd }) {
 
@@ -19,12 +20,14 @@ export function ItemCount({ stock, initial, onAdd }) {
     }
 
     return (
-        <div>
+        <div className="flex-c flex-jc-c">
+            <div>
 
-            <button disabled={count <= 0} onClick={restar}>-</button>
-            {count}
-            <button disabled={count >= stock} onClick={sumar}>+</button>
-            <button disabled={count <= 0 || count > stock}  onClick={add}>Agregar</button>
+            <button disabled={count <= 0} onClick={restar} className="carritoItemRestar">-</button>
+            <span className="carrito__itemCantidad">{count}</span>
+            <button disabled={count >= stock} onClick={sumar} className="carritoItemSumar">+</button>
+            </div>
+            <button disabled={count <= 0 || count > stock}  onClick={add} className="botonCTA">Agregar</button>
 
         </div>
     )

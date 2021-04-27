@@ -7,17 +7,23 @@ import { CartContext } from "../../context/cartContext";
 const ItemDetail = ({ item }) => {
 
     const [count, setCount] = useState(0)
-
-    const agregar = (num) => {
-        console.log(`Se Agrego un Item. Cantidad: ${num}`)
-        setCount(num)
-    }
-
+    
     const {addItem} = useContext(CartContext);
 
-    const terminarCompra = () => {
-        addItem(item, count)
-    }
+    const addHandler = (contador) => {
+        addItem(item, contador);
+        setCount(contador);
+    };
+
+    // const agregar = (num) => {
+    //     console.log(`Se Agrego un Item. Cantidad: ${num}`)
+    //     setCount(num)
+    // }
+
+
+    // const terminarCompra = () => {
+    //     addItem(item, count)
+    // }
 
     return (
 
@@ -36,10 +42,10 @@ const ItemDetail = ({ item }) => {
 
 
             { count === 0 ? 
-                <ItemCount initial={1} stock={5} onAdd={agregar} />
+                <ItemCount initial={1} stock={5} onAdd={addHandler} />
                 :
                  <Link to="/cart">
-                 <button onClick={terminarCompra}> Terminar mi compra </button>
+                 <button className="botonCTA"> Terminar mi compra </button>
                  </Link>
             }
            

@@ -6,7 +6,7 @@ import  products  from '../../products/products';
 import { getFirestore } from '../../firebase/client' 
 
 
-const ItemListContainer = ({ greeting /* greeting:saludo Asigna greeting a una variable llamada saludo*/ }) => {
+const ItemListContainer = () => {
 
     const [items, setItems] = useState([])
     
@@ -42,12 +42,8 @@ const ItemListContainer = ({ greeting /* greeting:saludo Asigna greeting a una v
 
     return (
         <div className="container ">
-            <p>
-                {greeting}
-            </p>
 
             <ItemList items={items} />
-
 
         </div>
     );

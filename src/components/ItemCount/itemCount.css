@@ -1,0 +1,51 @@
+.carrito__itemCantidad {
+    font-size: 0.875rem;
+    width: 40%;
+    max-width: 35px;
+    height: 25px;
+    border: none;
+  }
+  
+  .carritoItemRestar {
+    height: 25px;
+    width: 30%;
+    max-width: 25px;
+    margin-right: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 0;
+    color: red;
+    text-decoration: none;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background: none;
+  }
+  
+  .carritoItemSumar {
+    height: 25px;
+    width: 30%;
+    max-width: 25px;
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 0;
+    color: green;
+    text-decoration: none;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background: none;
+  }
+
+  .botonCTA {
+    margin-top: 10px;
+  }
+
+  .botonCTA:disabled {
+    background: gray;
+    cursor: initial;
+    border: none;
+  }
+
+  .botonCTA:disabled:hover{
+      box-shadow: none;
+  }
