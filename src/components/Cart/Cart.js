@@ -1,12 +1,53 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from "react-router-dom"
 import { CartContext } from "../../context/cartContext";
+import firebase from "firebase/app"
+import "firebase/firestore"
+import { getFirestore } from "../../firebase/client"
 import './cart.css';
 
 const Cart = () => {
 
+
     const { cart, removeItem, totalItems, totalPrecio } = useContext(CartContext)
 
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [ordenId, setOrdenId] = useState('');
+
+
+    const generarOrden = () => {
+
+        const db = getFirestore();
+        const ordersCol = db.collection("orders");
+
+        let orden = {}
+        orden.date = firebase.firestore.Timestamp.fromDate(new Date());
+        orden.buyer = {
+            name: name,
+            phone: phone,
+            email: email
+        }
+        orden.total = totalPrecio
+        orden.items = cart.map(cartItem => {
+            const id = cartItem.item.id;
+            const titulo = cartItem.item.titulo;
+            const autor = cartItem.item.autor;
+            const cantidad = cartItem.quantity;
+            const precio = cartItem.item.precio * cartItem.quantity;
+            return { id, titulo, autor, cantidad, precio }
+        })
+
+        ordersCol.add(orden)
+            .then((IdDocumento) => {
+                setOrdenId(IdDocumento.id);
+            })
+
+        alert(`${name}, tu compra por un total de $${totalPrecio}.- fue procesada correctamente.\nTu numero de orden es: ${ordenId}\nRecibiras un correo en ${email} con los detalles del envio.`)
+    
+        
+    }
 
 
 
@@ -18,7 +59,9 @@ const Cart = () => {
                 </div>
                 <div className="carrito__listaContenedor">
 
-                    {!cart.length ? <h2>No hay Items en el carrito<br/><Link to="/">Ir al Home</Link></h2>
+
+
+                    {!cart.length ? <h2>No hay Items en el carrito<br /><Link to="/">Ir al Home</Link></h2>
                         : (
                             <>
                                 {cart.map(cartItem =>
@@ -47,6 +90,8 @@ const Cart = () => {
                         )}
                 </div>
 
+
+
                 <div className="carrito__total flex flex-jc-sb flex-ai-c">
                     <div className="carrito__totalTitulo">
                         <h3>Total</h3>
@@ -59,11 +104,40 @@ const Cart = () => {
 
                 <div className="carrito__bottom flex flex-jc-c flex-ai-c">
                     <button className="carrito__bottomVaciar boton">Vaciar Carrito</button>
-                    <button className="carrito__bottomCheckout botonCTA">Finalizar Compra</button>
+                </div>
+
+                <div className="carrito__form">
+                    <form action="#" className="">
+                        <div>
+                            <label>
+                                Nombre:
+                                <input type="text" value={name} onInput={e => setName(e.target.value)}/>
+                            </label>
+                        </div>
+                        <div>
+                        <label>
+                                Telefono:
+                                <input type="text" value={phone} onInput={e => setPhone(e.target.value)}/>
+                            </label>
+                        </div>
+                        <div>
+                        <label>
+                                Email:
+                                <input type="email" value={email} onInput={e => setEmail(e.target.value)}/>
+                            </label>
+                        </div>
+                    </form>
+
+                </div>
+
+
+                <div className="carrito__bottom flex flex-jc-c flex-ai-c">
+                    <button className="carrito__bottomCheckout botonCTA" onClick={generarOrden}>Finalizar Compra</button>
                 </div>
             </div>
         </div>
     )
+
 }
 
 export default Cart;
