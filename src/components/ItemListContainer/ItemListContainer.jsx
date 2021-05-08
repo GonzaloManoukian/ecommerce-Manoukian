@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import './itemListContainer.css'
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom"; 
-import  products  from '../../products/products';
 import { getFirestore } from '../../firebase/client' 
 
 
@@ -17,9 +15,6 @@ const ItemListContainer = () => {
         const db = getFirestore();
         const itemsCollection = db.collection('items');
 
-        // TRAER POR FILTRO
-        // const filtrado = itemsCollection.where('category', '==', 'novelas').limit(1)
-        // const prom = filtrado.get()
 
         const prom = itemsCollection.get()
 

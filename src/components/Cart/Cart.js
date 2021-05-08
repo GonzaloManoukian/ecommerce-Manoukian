@@ -9,7 +9,7 @@ import './cart.css';
 const Cart = () => {
 
 
-    const { cart, removeItem, totalItems, totalPrecio } = useContext(CartContext)
+    const { cart, removeItem, totalPrecio, clear } = useContext(CartContext)
 
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -44,7 +44,11 @@ const Cart = () => {
                 setOrdenId(IdDocumento.id);
             })
 
-        alert(`${name}, tu compra por un total de $${totalPrecio}.- fue procesada correctamente.\nTu numero de orden es: ${ordenId}\nRecibiras un correo en ${email} con los detalles del envio.`)
+        clear();
+
+        setTimeout(() => {
+            alert(`${name}, tu compra por un total de $${totalPrecio}.- fue procesada correctamente.\nTu numero de orden es: ${ordenId}\nRecibiras un correo en ${email} con los detalles del envio.`)
+        }, 1000);
     
         
     }
@@ -103,7 +107,7 @@ const Cart = () => {
                 </div>
 
                 <div className="carrito__bottom flex flex-jc-c flex-ai-c">
-                    <button className="carrito__bottomVaciar boton">Vaciar Carrito</button>
+                    <button className="carrito__bottomVaciar boton" onClick={clear}>Vaciar Carrito</button>
                 </div>
 
                 <div className="carrito__form">

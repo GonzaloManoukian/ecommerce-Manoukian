@@ -15,16 +15,6 @@ const ItemDetail = ({ item }) => {
         setCount(contador);
     };
 
-    // const agregar = (num) => {
-    //     console.log(`Se Agrego un Item. Cantidad: ${num}`)
-    //     setCount(num)
-    // }
-
-
-    // const terminarCompra = () => {
-    //     addItem(item, count)
-    // }
-
     return (
 
         <div className="itemDetail">
