@@ -15,10 +15,10 @@ const ItemListContainer = () => {
         const db = getFirestore();
         const itemsCollection = db.collection('items');
 
+        console.log(itemsCollection);
 
-        const prom = itemsCollection.get()
-
-
+        const filtrado = categoryId? itemsCollection.where('category', '==', categoryId) : itemsCollection
+        const prom =  filtrado.get();
 
         prom.then((snaptshot) => {
             console.log("Se consultaron los datos");
@@ -33,7 +33,7 @@ const ItemListContainer = () => {
             }
             // setItems(resultado)
         })
-    }, []);
+    }, [categoryId]);
 
     return (
         <div className="container ">

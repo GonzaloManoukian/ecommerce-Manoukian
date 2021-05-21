@@ -42,16 +42,18 @@ const Cart = () => {
         ordersCol.add(orden)
             .then((IdDocumento) => {
                 setOrdenId(IdDocumento.id);
+                // mostrarOrden();
             })
 
-        clear();
-
-        setTimeout(() => {
-            alert(`${name}, tu compra por un total de $${totalPrecio}.- fue procesada correctamente.\nTu numero de orden es: ${ordenId}\nRecibiras un correo en ${email} con los detalles del envio.`)
-        }, 1000);
-    
+        clear();  
         
     }
+
+    // let ordenStatus = false;
+    
+    // const mostrarOrden = () => {
+    //     ordenStatus = true
+    // }
 
 
 
@@ -139,6 +141,15 @@ const Cart = () => {
                     <button className="carrito__bottomCheckout botonCTA" onClick={generarOrden}>Finalizar Compra</button>
                 </div>
             </div>
+
+            {ordenId ?             
+                <div>
+                    {name}, tu compra por un total de ${totalPrecio}.- fue procesada correctamente.<br/>
+                    Tu numero de orden es: {ordenId} <br/>
+                    Recibiras un correo en {email} con los detalles del envio.
+                </div>
+                : null
+            }
         </div>
     )
 
