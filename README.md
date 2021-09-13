@@ -1,3 +1,11 @@
+## Proyecto Educativo React- CoderHouse
+
+### Proyecto realizado durante la cursada del curso JavaScript, durante los meses de Febrero y Marzo del año 2021.
+
+### Proyecto con funcionalidades limitadas y estilos sin detallar.
+
+---
+
 Proyecto: ecommerce Top Five Discos y Libros
 Autor: Gonzalo Manoukian
 Curso: React.js - CoderHouse
